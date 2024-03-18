@@ -1,0 +1,29 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#41506b, #263849);
+}
+
+header {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 10vw;
+  font-weight: 50;
+  /* background-repeat: repeat; */
+  background: linear-gradient(90deg, #ef5a5a, #ffa952);
+  /* , #ffe79a, #feffdf */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
