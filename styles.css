@@ -1,10 +1,20 @@
+@font-face {
+  font-family: 'pecita';
+  src:  url('fonts/pecita-webfont.woff') format('woff'),
+        url('fonts/pecita-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  /* https://www.1001fonts.com/pecita-font.html */
+}
+
 body {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#41506b, #263849);
+  margin: 0;
+  background: linear-gradient(-10deg, #313131, #555555);
 }
 
-header {
+main {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -13,17 +23,58 @@ header {
   align-items: center;
 }
 
-header h1 {
-  margin: 0;
+main h1 {
+  margin-bottom: 2vh;
   text-align: center;
-  text-transform: uppercase;
-  font-family: 'Gill Sans', sans-serif;
+  font-family: pecita, serif;
   font-size: 10vw;
-  font-weight: 50;
-  /* background-repeat: repeat; */
-  background: linear-gradient(90deg, #ef5a5a, #ffa952);
-  /* , #ffe79a, #feffdf */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 10;
+  color: #eeeeee;
+  text-shadow: 2px 2px 6px black
 }
 
+#social {
+  display: flex;
+}
+
+.social-tile {
+  display: inline-block;
+  padding: 2vw;
+  font-size: 5vmin;
+  color: #eeeeee;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.social-tile:hover {
+  transform: scale(1.8);
+}
+
+#mastodon:hover {
+  color: lightblue;
+}
+
+#github:hover {
+  color: silver;
+}
+
+#flickr:hover {
+  color: palevioletred;
+}
+
+#strava:hover {
+  color: orange;
+}
+
+#instagram:hover {
+  color: lightcoral;
+}
+
+#signal:hover {
+  color: lightskyblue;
+}
+
+#mail:hover {
+  color: cadetblue;
+}
