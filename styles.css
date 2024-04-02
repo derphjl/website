@@ -1,80 +1,183 @@
+/* ------------------------------ */
+/*     EXTERNAL FONT IMPORT       */
+/* ------------------------------ */
 @font-face {
-  font-family: 'pecita';
-  src:  url('fonts/pecita-webfont.woff') format('woff'),
-        url('fonts/pecita-webfont.woff2') format('woff2');
+  font-family: 'zidna';
+  src:  url('fonts/zidna-webfont.woff') format('woff'),
+  url('fonts/zidna-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-  /* https://www.1001fonts.com/pecita-font.html */
+  /* https://www.fontspace.com/zidna-font-f102397 */
 }
 
+
+/* ------------------------------ */
+/*      GENERAL PAGE SETUP        */
+/* ------------------------------ */
+
+/* 
+set the body to take up 100% of the viewport in both dimensions
+delete the default margins to avoid scrollbars
+set a background color as fallback
+but overlay it with a background image 
+scale the image to cover the whole screen 
+*/
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background: linear-gradient(-10deg, #313131, #555555);
+  background-color: #555555;
+  background-image: url("bg.webp");
+  background-size: cover;
+  background-position: center;
 }
 
-main {
-  height: 100vh;
-  width: 100vw;
+/* 
+the card is the only element on the site
+set the display to be a css grid and setup the grid accordingly
+absolute positioning with auto margins works because the element is alone
+*/
+#card {
+  display: grid; 
+  grid-template-columns: 3fr 2fr; 
+  grid-template-rows: 5fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "a b"
+    "c c"; 
+  width: 800px;
+  aspect-ratio: 85 / 55;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  box-shadow: 5px 5px 5px;
+  background-color: white;
+}
+
+/* 
+strip all link decoration and color
+*/
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* ------------------------------ */
+/*    INTRO SECTION OF CARD       */
+/* ------------------------------ */
+
+/* 
+intro section is top left, holds welcome text and name
+middleName "unfolds" on hover, handled later
+*/
+#intro {
+  grid-area: a;
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  text-align: center;
+  font-family: 'Trebuchet MS',sans-serif;
+}
+
+h1 {
+  font-family: zidna, serif;
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
+}
+
+.middleName {
+  display: inline-block;
+  vertical-align: bottom;
+  color: #222;
+  width: 0px;
+  overflow: hidden;
+  -webkit-transition: width .2s ease-out;
+  transition: width .2s ease-out;
+}
+
+#intro:hover .middleName {
+  width: 120px;
+}
+
+
+/* ------------------------------ */
+/*       SOCIALS SECTIONS         */
+/* ------------------------------ */
+
+#highlights {
+  grid-area: b;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+
+/*
+the anchor tags that make up the highlight socials are made into a 
+flexbox container themselves, making it possible to center the label
+*/
+#highlights a {
+  display: flex;
   align-items: center;
 }
 
-main h1 {
-  margin-bottom: 2vh;
-  text-align: center;
-  font-family: pecita, serif;
-  font-size: 10vw;
-  font-weight: 10;
-  color: #eeeeee;
-  text-shadow: 2px 2px 6px black
+.social-icon span {
+  font-family: 'Trebuchet MS',sans-serif;
+  font-size: 21px;
 }
 
-#social {
+/*
+the highlight section is bigger than the collection as the linked
+socials are more relevant and curated better
+*/
+#highlights svg {
+  width: 50px;
+  padding: 15px;
+}
+
+#collection {
+  grid-area: c;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.social-tile {
-  display: inline-block;
-  padding: 2vw;
-  font-size: 5vmin;
-  color: #eeeeee;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+#collection a {
+  display: flex;
+  align-items: center;
 }
 
-.social-tile:hover {
-  transform: scale(1.8);
+#collection svg {
+  width: 30px;
+  padding: 20px;
 }
 
-#mastodon:hover {
-  color: lightblue;
-}
+/* .label {
+  display: block;
+} */
 
-#github:hover {
-  color: silver;
-}
 
-#flickr:hover {
-  color: palevioletred;
-}
 
-#strava:hover {
-  color: orange;
-}
 
-#instagram:hover {
-  color: lightcoral;
-}
 
-#signal:hover {
-  color: lightskyblue;
-}
+/* ------------------------------ */
+/*      COLOR DEFINITIONS         */
+/* ------------------------------ */
 
-#mail:hover {
-  color: cadetblue;
-}
+/* #mastodon:hover {   color: lightblue;     } */
+/* #github:hover {     color: silver;        } */
+/* #flickr:hover {     color: palevioletred; } */
+/* #strava:hover {     color: orange;        } */
+/* #instagram:hover {  color: lightcoral;    } */
+/* #linkedin:hover {   color: lightblue;     } */
+/* #xing:hover {       color: lightgreen;    } */
+/* #signal:hover {     color: lightskyblue;  } */
+/* #mail:hover {       color: cadetblue;     } */
+
+/* ------------------------------ */
+/*      SETUP FOR SCREENS XYZ     */
+/* ------------------------------ */
