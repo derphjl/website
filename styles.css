@@ -44,8 +44,8 @@ absolute positioning with auto margins works because the element is alone
   grid-template-rows: 5fr 1fr; 
   gap: 0px 0px; 
   grid-template-areas:
-    "a b"
-    "c c"; 
+  "a b"
+  "c c"; 
   width: 800px;
   aspect-ratio: 85 / 55;
   position: absolute;
@@ -70,7 +70,6 @@ strip all link decoration and color
   list-style: none;
   display: contents;
 }
-
 
 /* ------------------------------ */
 /*    INTRO SECTION OF CARD       */
@@ -138,6 +137,7 @@ flexbox container themselves, making it possible to center the label
 .highlights a {
   display: flex;
   align-items: center;
+  padding-right: 6px;
 }
 
 /*
@@ -147,6 +147,15 @@ socials are more relevant and curated better
 .highlights svg {
   width: 40px;
   padding: 18px;
+}
+
+.highlights li {
+  transition: all .2s ease-out; 
+}
+
+.highlights li:hover {
+  background-color: lightblue;
+  transform: scale(1.1);
 }
 
 .collection {
@@ -164,11 +173,12 @@ socials are more relevant and curated better
 .collection svg {
   width: 30px;
   padding: 20px;
+  transition: all .2s ease-out; 
 }
 
-/* .label {
-  display: block;
-} */
+.collection svg:hover {
+  transform: scale(1.9);
+}
 
 
 
@@ -188,6 +198,199 @@ socials are more relevant and curated better
 /* #signal:hover {     color: lightskyblue;  } */
 /* #mail:hover {       color: cadetblue;     } */
 
+/* -------------------------------------- */
+/* SETUP FOR SCREENS LESS THAN 900PX WIDE */
+/* -------------------------------------- */
+
+@media screen and (max-width: 900px) {
+  .card {
+    grid-template-rows: 6fr 5fr 1fr; 
+    grid-template-columns: 1fr 0fr; 
+    gap: 0px 0px; 
+    grid-template-areas:
+    "a"
+    "b"
+    "c"; 
+    width: 450px;
+    aspect-ratio: 65 / 85;
+  }
+  
+  .intro img {
+    width: 120px;
+  }
+  
+  .intro h1 {
+    font-size: 38px;
+  }
+  
+  .text {
+    font-size: 12px;
+  }
+  
+  .highlights {
+    align-items: center;
+  }
+  
+  .highlights svg {
+    width: 26px;
+    padding: 8px;
+  }
+
+  .collection {
+    margin: 8px 0px;
+  }
+
+  .collection svg {
+    width: 23px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 350px;
+  }
+  
+  .intro img {
+    width: 80px;
+    margin-top: 10px;
+  }
+  
+  .intro h1 {
+    font-size: 28px;
+  }
+  
+  .text {
+    font-size: 11px;
+    line-height: 0.5;
+  }
+  
+  .highlights {
+    font-size: 14px;
+  }
+  
+  .highlights svg {
+    width: 22px;
+    padding: 4px;
+  }
+  
+  .collection {
+    flex-wrap: wrap;
+    margin: 8px 0px;
+  }
+  
+  .collection li {
+    margin: 2px 16px;
+  }
+
+  .collection svg {
+    width: 21px;
+    padding: 8px;
+  }
+
+}
+
+@media screen and (max-width: 370px) {
+  .card {
+    width: 280px;
+  }
+  
+  .intro img {
+    width: 60px;
+  }
+  
+  .intro h1 {
+    font-size: 24px;
+  }
+  
+  .text {
+    font-size: 11px;
+    line-height: 0.3;
+  }
+  
+  .highlights {
+    font-size: 11px;
+    margin: 4px 0px;
+  }
+  
+  .highlights svg {
+    width: 16px;
+    padding: 4px;
+  }
+  
+  .collection {
+    margin: 4px 0px;
+  }
+
+  .collection svg {
+    width: 19px;
+  }
+
+
+}
+
+/* when hover is not supported, frame the buttons to make them appear clickable */
+/* when hover is supported, we play with colors and animation instead */
+@media not (hover: hover) {
+  .highlights li {
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 4% / 20%;
+    margin-right: 10px;
+  }
+  
+  .collection li {
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 10%;
+  }
+  
+}
+
+
 /* ------------------------------ */
-/*      SETUP FOR SCREENS XYZ     */
+/*    STYLES FOR NOTE-SITES       */
 /* ------------------------------ */
+
+.note {
+  display: grid; 
+  max-width: 450px;
+  width: 80%;
+  aspect-ratio: 85 / 55;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  box-shadow: 5px 5px 5px;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+}
+
+.note p {
+  font-size:  min(3vw , 12pt);
+}
+
+.note p:last-of-type {
+  color: rgb(200, 200, 200);
+  font-size:  min(2vw , 8pt);
+}
+
+.note .data {
+  font-size:  min(5vw , 23pt);
+}
+
+/* ---------------------------------- */
+/*  STYLES FOR DATENSCHUTZ/IMPRESSUM  */
+/* ---------------------------------- */
+
+.impressum {
+  max-width: 1200px;
+  width: 95%;
+  margin: auto;
+  box-shadow: 5px 5px 5px;
+  background-color: white;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  margin-top: 6vmin;
+}
